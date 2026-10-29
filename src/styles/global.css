@@ -1,0 +1,24 @@
+
+@import "tailwindcss";
+
+@theme {
+  --color-ivory: #F7F4ED;
+  --color-ivory-dark: #EAE5DB;
+  --color-charcoal: #292D2B;
+  --color-muted: #756F65;
+  --color-accent: #927A59;
+
+  --font-serif: Georgia, "Times New Roman", serif;
+  --font-sans: Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-ivory);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+}

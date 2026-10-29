@@ -1,16 +1,50 @@
+
 ---
+import Layout from "../layouts/Layout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Tran Hoang Linh | AI Researcher">
+  <main class="min-h-screen flex items-center
+               justify-center px-6">
+
+    <section class="text-center max-w-3xl">
+
+      <p class="text-accent tracking-[0.3em]
+                uppercase text-xs mb-8">
+        Linh Tran Academic Portfolio
+      </p>
+
+      <h1 class="font-serif text-5xl
+                 md:text-7xl text-charcoal">
+        Tran Hoang Linh
+      </h1>
+
+      <p class="mt-6 text-xl md:text-2xl
+                text-muted font-serif italic">
+        AI Researcher AIF
+      </p>
+
+      <div class="w-16 h-px bg-accent
+                  mx-auto my-10"></div>
+
+      <p class="text-muted leading-8
+                max-w-xl mx-auto">
+        Exploring Active Inference,
+        intelligent decision-making,
+        and practical applications
+        of Artificial Intelligence.
+      </p>
+
+      <div class="mt-10">
+        <a href="#research"
+           class="inline-block bg-charcoal
+                  text-white px-8 py-4
+                  hover:bg-accent transition-colors
+                  duration-300">
+          Explore My Research
+        </a>
+      </div>
+
+    </section>
+  </main>
+</Layout>
