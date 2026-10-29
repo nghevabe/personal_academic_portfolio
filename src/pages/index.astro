@@ -1,50 +1,337 @@
-
 ---
 import Layout from "../layouts/Layout.astro";
+import personalImage from "../images/personal_image.png";
+import fragranceImage from "../images/lv_imagination.png";
+
+// Replace these temporary images with local files in /public/images/ later.
+// Example: hero: "/images/hero-academic.jpg"
+const images = {
+  hero: personalImage.src,
+  fragrance: fragranceImage.src,
+  architecture: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=85",
+};
+
+const scholarUrl = "https://scholar.google.com/citations?user=ktwWD5MAAAAJ";
+
+// Update these links before publishing your website.
+const socialLinks = [
+  { label: "Google Scholar", href: scholarUrl },
+  { label: "GitHub", href: "https://github.com/" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/" },
+];
+
+const publications = [
+  {
+    category: "PUBLISHED WORK · IEA/AIE 2026",
+    title: "AI-Based System for Automatic Backlog Generation and Preliminary Estimation from Requirement Documents",
+    description:
+      "A practical AI-based approach to transforming requirement documents into structured software backlogs and preliminary effort estimates.",
+    href: scholarUrl,
+    linkLabel: "Google Scholar",
+    icon: "01",
+    pending: false,
+  },
+  {
+    category: "ONGOING RESEARCH · ACTIVE INFERENCE",
+    title: "Dynamic Action-Space Adaptation via Contrastive Transition Adaptation in Active Inference",
+    description:
+      "Research in progress on how Active Inference agents can introduce new actions and refine transition models through experience.",
+    href: null,
+    linkLabel: "In preparation",
+    icon: "02",
+    pending: true,
+  },
+];
+
+const experience = [
+  {
+    company: "BIDV",
+    role: "Software Engineer · Present",
+    description: "Developing reliable digital banking applications and services.",
+    number: "01",
+  },
+  {
+    company: "Money Lover",
+    role: "AI Engineer",
+    description: "Exploring applied AI within personal finance software.",
+    number: "02",
+  },
+  {
+    company: "VNPAY",
+    role: "Mobile Developer",
+    description: "Building mobile experiences for financial technology products.",
+    number: "03",
+  },
+];
 ---
 
-<Layout title="Tran Hoang Linh | AI Researcher">
-  <main class="min-h-screen flex items-center
-               justify-center px-6">
-
-    <section class="text-center max-w-3xl">
-
-      <p class="text-accent tracking-[0.3em]
-                uppercase text-xs mb-8">
-        Linh Tran Academic Portfolio
-      </p>
-
-      <h1 class="font-serif text-5xl
-                 md:text-7xl text-charcoal">
-        Tran Hoang Linh
-      </h1>
-
-      <p class="mt-6 text-xl md:text-2xl
-                text-muted font-serif italic">
-        AI Researcher AIF
-      </p>
-
-      <div class="w-16 h-px bg-accent
-                  mx-auto my-10"></div>
-
-      <p class="text-muted leading-8
-                max-w-xl mx-auto">
-        Exploring Active Inference,
-        intelligent decision-making,
-        and practical applications
-        of Artificial Intelligence.
-      </p>
-
-      <div class="mt-10">
-        <a href="#research"
-           class="inline-block bg-charcoal
-                  text-white px-8 py-4
-                  hover:bg-accent transition-colors
-                  duration-300">
-          Explore My Research
+<Layout title="Tran Hoang Linh | Active Inference Researcher · FSB">
+  <div class="min-h-screen bg-[#F9F7F2] text-[#26323B] selection:bg-[#C6AD83]/40">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 border-b border-[#26323B]/10 bg-[#F9F7F2]/90 backdrop-blur-xl">
+      <div class="mx-auto flex h-20 max-w-[1280px] items-center justify-between px-6 md:px-10 lg:px-12">
+        <a href="#home" class="font-editorial text-[27px] font-semibold text-[#1E3243] transition-opacity hover:opacity-70">
+          Tran Hoang Linh
         </a>
-      </div>
 
-    </section>
-  </main>
+        <nav class="hidden items-center gap-8 text-[13px] font-medium tracking-wide text-[#3E4850] md:flex" aria-label="Main navigation">
+          <a class="nav-link" href="#about">About</a>
+          <a class="nav-link" href="#publications">Publications</a>
+          <a class="nav-link" href="#experience">Experience</a>
+          <a class="nav-link" href="#beyond">Beyond</a>
+          <a class="nav-link" href="#contact">Contact</a>
+        </nav>
+
+        <!-- No JavaScript needed for the mobile menu -->
+        <details class="group relative md:hidden">
+          <summary class="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-md border border-[#DDD4C5] text-2xl text-[#233F56] marker:hidden [&::-webkit-details-marker]:hidden" aria-label="Open navigation menu">
+            <span aria-hidden="true">☰</span>
+          </summary>
+          <nav class="absolute right-0 top-12 flex w-52 flex-col gap-1 rounded-xl border border-[#E5DED2] bg-[#FFFEFA] p-3 text-sm shadow-xl" aria-label="Mobile navigation">
+            <a class="mobile-link" href="#about">About</a>
+            <a class="mobile-link" href="#publications">Publications</a>
+            <a class="mobile-link" href="#experience">Experience</a>
+            <a class="mobile-link" href="#beyond">Beyond</a>
+            <a class="mobile-link" href="#contact">Contact</a>
+          </nav>
+        </details>
+      </div>
+    </header>
+
+    <main id="home">
+      <!-- HERO -->
+      <section class="mx-auto grid max-w-[1280px] items-center gap-12 px-6 pb-20 pt-16 md:px-10 md:pt-24 lg:grid-cols-[1.04fr_0.96fr] lg:gap-14 lg:px-12 lg:pb-28">
+        <div class="relative z-10">
+          <p class="eyebrow">Master's Research · Software Engineering</p>
+          <h1 class="font-editorial mt-6 text-[clamp(4rem,7vw,7rem)] font-semibold leading-[0.88] tracking-[-0.045em] text-[#172D40]">
+            Tran Hoang<br class="hidden lg:block" /> Linh
+          </h1>
+          <p class="font-editorial mt-6 text-[clamp(1.6rem,2.7vw,2.6rem)] leading-[1.18] text-[#243D51]">
+            Active Inference Researcher<br class="hidden sm:block" />
+            <span class="italic text-[#847660]">&amp; Software Engineer</span>
+          </p>
+          <p class="mt-7 max-w-[570px] text-[15px] leading-[1.95] text-[#5C6570] md:text-[16px]">
+            I conduct research in Artificial Intelligence at FPT School of Business &amp; Technology, FPT University (FSB), with a primary focus on
+            <strong class="font-semibold text-[#233F56]">Active Inference (AIF)</strong>
+            and an additional interest in practical LLM applications.
+          </p>
+
+          <div class="mt-9 flex flex-wrap items-center gap-3">
+            <a href="#publications" class="inline-flex min-h-12 items-center justify-center gap-3 rounded-md bg-[#233F56] px-7 text-sm font-medium text-white transition-colors duration-200 hover:bg-[#365A75]">
+              View Publications <span aria-hidden="true">↗</span>
+            </a>
+            <a href="#contact" class="inline-flex min-h-12 items-center justify-center gap-3 rounded-md border border-[#C8B89C] px-7 text-sm font-medium text-[#233F56] transition-colors duration-200 hover:bg-[#EDE6D9]">
+              Contact <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <div class="mt-12 flex items-center gap-4 text-xs tracking-[0.14em] text-[#A18D6E] uppercase">
+            <span class="h-px w-12 bg-[#C6AD83]"></span>
+            Ideas · Research · Build
+          </div>
+        </div>
+
+        <div class="relative lg:pl-4">
+          <div class="relative overflow-hidden rounded-t-[140px] rounded-b-2xl bg-[#E8E0D2] shadow-[0_24px_80px_-44px_rgba(38,50,59,0.4)] sm:rounded-t-[200px]">
+            <img
+              src={images.hero}
+              alt="Warm academic workspace with a desk, books and natural light"
+              class="h-[420px] w-full object-cover sm:h-[520px] lg:h-[570px]"
+              width="780"
+              height="920"
+              loading="eager"
+              fetchpriority="high"
+            />
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#1C2E3B]/35 via-transparent to-transparent"></div>
+            <div class="absolute bottom-7 left-7 border-l border-white/70 pl-4 text-white">
+              <p class="font-editorial text-2xl italic leading-tight">Curiosity leads<br />to discovery.</p>
+            </div>
+          </div>
+          <div class="absolute -bottom-5 -right-3 hidden rounded-lg border border-[#E5DCCD] bg-[#F9F7F2] px-6 py-4 shadow-md sm:block lg:-right-7">
+            <p class="text-[10px] uppercase tracking-[0.22em] text-[#B49B73]">Research interest</p>
+            <p class="font-editorial mt-1 text-[22px] text-[#233F56]">Intelligent adaptive agents</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="scroll-mt-24 border-y border-[#E8E2D8] bg-[#FDFBF7]">
+        <div class="mx-auto grid max-w-[1280px] gap-8 px-6 py-20 md:px-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 lg:px-12 lg:py-24">
+          <div>
+            <p class="eyebrow">About</p>
+            <h2 class="section-title mt-4">Bridging AI Research<br class="hidden sm:block" /> with Real-World Impact</h2>
+          </div>
+          <div class="space-y-5 self-center text-[15px] leading-[1.95] text-[#5C6570] md:text-[16px]">
+            <p>
+              I am a Software Engineer at <strong class="font-semibold text-[#233F56]">BIDV</strong>, where I contribute to reliable digital banking software. Alongside my engineering work, I pursue research in Artificial Intelligence at FPT School of Business &amp; Technology, FPT University.
+            </p>
+            <p>
+              My main research direction is <strong class="font-semibold text-[#233F56]">Active Inference (AIF)</strong>, particularly how intelligent agents can reason and adapt their actions under uncertainty. I am also interested in applying Large Language Models to practical software systems.
+            </p>
+            <div class="flex items-center gap-3 pt-3 text-xs uppercase tracking-[0.18em] text-[#B49B73]">
+              <span class="h-px w-10 bg-[#C6AD83]"></span> From research to application
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PUBLICATIONS -->
+      <section id="publications" class="scroll-mt-24 mx-auto max-w-[1280px] px-6 py-20 md:px-10 lg:px-12 lg:py-28">
+        <div class="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class="eyebrow">Publications</p>
+            <h2 class="section-title mt-4">Research &amp; Scholarly Work</h2>
+          </div>
+          <a href={scholarUrl} target="_blank" rel="noopener noreferrer" class="mb-2 inline-flex items-center gap-2 self-start border-b border-[#B49B73] pb-1 text-sm font-medium text-[#233F56] transition-opacity hover:opacity-70">
+            View Google Scholar <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <div class="mt-9 grid gap-5 lg:grid-cols-2">
+          {publications.map((pub) => (
+            <article class="group flex h-full flex-col rounded-xl border border-[#E6DFD4] bg-[#FFFEFB] p-7 shadow-[0_12px_38px_-30px_rgba(20,30,40,0.3)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_40px_-28px_rgba(20,30,40,0.3)] sm:p-8">
+              <div class="flex items-start justify-between gap-4">
+                <span class="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-[#F1EBDF] font-editorial text-2xl text-[#9B815F]">{pub.icon}</span>
+                <span class:list={[
+                  "rounded-full px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider",
+                  pub.pending ? "bg-[#E8EEF5] text-[#526E89]" : "bg-[#EDE6D9] text-[#8B7350]",
+                ]}>
+                  {pub.pending ? "In preparation" : "Published"}
+                </span>
+              </div>
+              <p class="mt-7 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#AE9673]">{pub.category}</p>
+              <h3 class="font-editorial mt-3 text-[28px] font-semibold leading-[1.18] text-[#233F56] sm:text-[32px]">
+                {pub.title}
+              </h3>
+              <p class="mt-4 flex-1 text-sm leading-[1.9] text-[#65707A]">{pub.description}</p>
+              <div class="mt-7 border-t border-[#EDE7DE] pt-5">
+                {pub.href ? (
+                  <a href={pub.href} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-[#233F56] hover:text-[#B49B73]">
+                    {pub.linkLabel} <span aria-hidden="true">↗</span>
+                  </a>
+                ) : (
+                  <span class="text-sm italic text-[#9A9A98]">Manuscript in preparation</span>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience" class="scroll-mt-24 border-y border-[#E8E2D8] bg-[#FDFBF7]">
+        <div class="mx-auto max-w-[1280px] px-6 py-20 md:px-10 lg:px-12 lg:py-28">
+          <div class="grid gap-5 lg:grid-cols-[1fr_1fr] lg:items-end">
+            <div>
+              <p class="eyebrow">Professional Journey</p>
+              <h2 class="section-title mt-4">From Ideas to<br />Real-World Systems</h2>
+            </div>
+            <p class="max-w-lg text-[15px] leading-[1.9] text-[#65707A] lg:justify-self-end">
+              My journey spans mobile software engineering, applied AI, and digital banking — connecting research-driven thinking with products used in everyday life.
+            </p>
+          </div>
+
+          <div class="relative mt-12 grid gap-5 md:grid-cols-3 md:gap-8">
+            <div class="absolute left-0 right-0 top-[22px] hidden h-px bg-[#D7C5AA] md:block"></div>
+            {experience.map((job) => (
+              <article class="relative rounded-xl border border-[#EBE4D9] bg-[#FFFEFB] p-7 md:mt-8 md:border-transparent md:bg-transparent md:px-2 md:shadow-none">
+                <span class="absolute -top-[43px] left-3 hidden h-5 w-5 rounded-full border-[5px] border-[#FDFBF7] bg-[#B49B73] ring-1 ring-[#D7C5AA] md:block"></span>
+                <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B49B73]">{job.number} / Career</p>
+                <h3 class="font-editorial mt-3 text-[31px] font-semibold text-[#233F56]">{job.company}</h3>
+                <p class="mt-1 text-sm font-semibold text-[#3E4D5A]">{job.role}</p>
+                <p class="mt-4 max-w-xs text-sm leading-[1.85] text-[#66727A]">{job.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- BEYOND -->
+      <section id="beyond" class="scroll-mt-24 mx-auto max-w-[1280px] px-6 py-20 md:px-10 lg:px-12 lg:py-28">
+        <div>
+          <p class="eyebrow">Beyond Research</p>
+          <h2 class="section-title mt-4">A More Curated Life</h2>
+          <p class="mt-4 max-w-2xl text-[15px] leading-[1.9] text-[#66727A]">
+            Outside research and engineering, I find inspiration in thoughtful craftsmanship, design and the little details of everyday life.
+          </p>
+        </div>
+
+        <div class="mt-9 grid gap-5 lg:grid-cols-2">
+          <article class="grid overflow-hidden rounded-xl border border-[#E6DFD4] bg-[#FFFEFB] sm:grid-cols-[40%_60%]">
+            <img src={images.fragrance} alt="Perfume bottle representing the art of fragrance" loading="lazy" width="600" height="700" class="h-64 w-full object-cover sm:h-full" />
+            <div class="flex flex-col justify-center p-7 sm:p-8">
+              <p class="eyebrow">The Art of Fragrance</p>
+              <h3 class="font-editorial mt-3 text-[30px] font-semibold leading-tight text-[#233F56]">Fragrance Storyteller</h3>
+              <p class="mt-4 text-sm leading-[1.9] text-[#65707A]">A personal appreciation for scent, memory and craftsmanship — where fragrance becomes a form of storytelling.</p>
+            </div>
+          </article>
+          <article class="grid overflow-hidden rounded-xl border border-[#E6DFD4] bg-[#FFFEFB] sm:grid-cols-[40%_60%]">
+            <img src={images.architecture} alt="Minimal modern architecture representing an interest in real estate" loading="lazy" width="600" height="700" class="h-64 w-full object-cover sm:h-full" />
+            <div class="flex flex-col justify-center p-7 sm:p-8">
+              <p class="eyebrow">Architecture &amp; Investment</p>
+              <h3 class="font-editorial mt-3 text-[30px] font-semibold leading-tight text-[#233F56]">Long-Term Value</h3>
+              <p class="mt-4 text-sm leading-[1.9] text-[#65707A]">An interest in architecture, real estate and creating lasting value with a thoughtful, long-term perspective.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="contact" class="scroll-mt-24 bg-[#1E3243] text-white">
+      <div class="mx-auto grid max-w-[1280px] gap-9 px-6 py-14 md:px-10 lg:grid-cols-[1fr_auto] lg:items-center lg:px-12">
+        <div>
+          <h2 class="font-editorial text-[35px] font-semibold">Tran Hoang Linh</h2>
+          <p class="mt-2 text-sm text-[#C5CED4]">Active Inference Researcher · Software Engineer</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-5 text-sm text-[#F4F0E9] sm:gap-8">
+          {socialLinks.map((link) => (
+            <a href={link.href} target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-[#D7BD94]">
+              {link.label} <span aria-hidden="true">↗</span>
+            </a>
+          ))}
+          <!-- Replace this placeholder with your preferred public contact email. -->
+          <a href="mailto:your-email@example.com" class="transition-colors hover:text-[#D7BD94]">Email ↗</a>
+        </div>
+      </div>
+      <div class="border-t border-white/10">
+        <div class="mx-auto flex max-w-[1280px] flex-col justify-between gap-2 px-6 py-5 text-xs text-[#AAB7C0] sm:flex-row md:px-10 lg:px-12">
+          <span>© {new Date().getFullYear()} Tran Hoang Linh. All rights reserved.</span>
+          <span class="italic">Ideas today, for a better tomorrow.</span>
+        </div>
+      </div>
+    </footer>
+  </div>
 </Layout>
+
+<style is:global>
+  @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap");
+
+  html { scroll-behavior: smooth; }
+  body { font-family: "DM Sans", Arial, sans-serif; }
+  .font-editorial { font-family: "Cormorant Garamond", Georgia, serif; }
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.23em;
+    line-height: 1.6;
+    text-transform: uppercase;
+    color: #b49b73;
+  }
+  .section-title {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(2.75rem, 5vw, 4.5rem);
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    line-height: 0.99;
+    color: #1e3243;
+  }
+  .nav-link { transition: color 180ms ease; }
+  .nav-link:hover { color: #b49b73; }
+  .mobile-link { display: block; border-radius: 0.375rem; padding: 0.6rem 0.75rem; }
+  .mobile-link:hover { background: #f1eadf; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition-duration: 0.01ms !important; }
+  }
+</style>
