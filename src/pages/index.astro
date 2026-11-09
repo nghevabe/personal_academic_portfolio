@@ -13,6 +13,43 @@ const images = {
 
 const scholarUrl = "https://scholar.google.com/citations?user=ktwWD5MAAAAJ";
 
+// Academic identity structured data for Google and other search engines.
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": "https://tranhoanglinh.com/#profile",
+  url: "https://tranhoanglinh.com/",
+  mainEntity: {
+    "@type": "Person",
+    "@id": "https://tranhoanglinh.com/#person",
+    name: "Tran Hoang Linh",
+    alternateName: "Linh Tran",
+    url: "https://tranhoanglinh.com/",
+    description:
+      "Software Engineer at BIDV and Artificial Intelligence researcher focusing on Active Inference, adaptive intelligent agents, and practical applications of LLMs.",
+    affiliation: {
+      "@type": "EducationalOrganization",
+      name: "FPT School of Business & Technology, FPT University",
+      alternateName: "FSB",
+    },
+    worksFor: {
+      "@type": "Organization",
+      name: "BIDV",
+    },
+    knowsAbout: [
+      "Active Inference",
+      "Artificial Intelligence",
+      "Adaptive Intelligent Agents",
+      "Large Language Models",
+      "Software Engineering",
+    ],
+    sameAs: [
+      scholarUrl,
+      "https://github.com/nghevabe",
+    ],
+  },
+};
+
 // Update these links before publishing your website.
 const socialLinks = [
   { label: "Google Scholar", href: scholarUrl },
@@ -65,7 +102,11 @@ const experience = [
 ];
 ---
 
-<Layout title="Tran Hoang Linh | Active Inference Researcher · FSB">
+<Layout
+  title="Tran Hoang Linh | Active Inference Researcher | FSB – FPT University"
+  description="Tran Hoang Linh researches Active Inference and intelligent agents at FPT School of Business & Technology (FSB), FPT University, and works as a Software Engineer at BIDV."
+  schema={personSchema}
+>
   <div class="min-h-screen bg-[#F9F7F2] text-[#26323B] selection:bg-[#C6AD83]/40">
     <!-- Header -->
     <header class="sticky top-0 z-50 border-b border-[#26323B]/10 bg-[#F9F7F2]/90 backdrop-blur-xl">
@@ -135,7 +176,7 @@ const experience = [
           <div class="relative overflow-hidden rounded-t-[140px] rounded-b-2xl bg-[#E8E0D2] shadow-[0_24px_80px_-44px_rgba(38,50,59,0.4)] sm:rounded-t-[200px]">
             <img
               src={images.hero}
-              alt="Warm academic workspace with a desk, books and natural light"
+              alt="Portrait of Tran Hoang Linh, Active Inference researcher and Software Engineer"
               class="h-[420px] w-full object-cover sm:h-[520px] lg:h-[570px]"
               width="780"
               height="920"
