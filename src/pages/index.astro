@@ -27,10 +27,22 @@ const personSchema = {
     url: "https://tranhoanglinh.com/",
     description:
       "Software Engineer at BIDV and Artificial Intelligence researcher focusing on Active Inference, adaptive intelligent agents, and practical applications of LLMs.",
-    affiliation: {
+    // Academic background; do not imply current employment at the university.
+    alumniOf: {
       "@type": "EducationalOrganization",
       name: "FPT School of Business & Technology, FPT University",
       alternateName: "FSB",
+    },
+    jobTitle: "AI Researcher",
+    // This reflects the formally awarded degree; AI is the research specialization.
+    hasCredential: {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "Master's degree",
+      name: "Master of Artificial Intelligence",
+      recognizedBy: {
+        "@type": "EducationalOrganization",
+        name: "FPT University",
+      },
     },
     worksFor: {
       "@type": "Organization",
@@ -104,7 +116,7 @@ const experience = [
 
 <Layout
   title="Tran Hoang Linh | Active Inference Researcher | FSB – FPT University"
-  description="Tran Hoang Linh researches Active Inference and intelligent agents at FPT School of Business & Technology (FSB), FPT University, and works as a Software Engineer at BIDV."
+  description="Tran Hoang Linh is an AI researcher specializing in Active Inference, with master's-level academic work at FSB, FPT University, and professional experience as a Software Engineer at BIDV."
   schema={personSchema}
 >
   <div class="min-h-screen bg-[#F9F7F2] text-[#26323B] selection:bg-[#C6AD83]/40">
@@ -204,7 +216,7 @@ const experience = [
           </div>
           <div class="space-y-5 self-center text-[15px] leading-[1.95] text-[#5C6570] md:text-[16px]">
             <p>
-              I am a Software Engineer at <strong class="font-semibold text-[#233F56]">BIDV</strong>, where I contribute to reliable digital banking software. Alongside my engineering work, I pursue research in Artificial Intelligence at FPT School of Business &amp; Technology, FPT University.
+              I am a Software Engineer at <strong class="font-semibold text-[#233F56]">BIDV</strong>, where I contribute to reliable digital banking software. My academic specialization is <strong class="font-semibold text-[#233F56]">Artificial Intelligence</strong> at FPT School of Business &amp; Technology (FSB), FPT University. I describe this research-focused academic profile as <strong class="font-semibold text-[#233F56]">Master in Artificial Intelligence</strong>; my formally awarded master's degree is in Software Engineering from FPT University.
             </p>
             <p>
               My main research direction is <strong class="font-semibold text-[#233F56]">Active Inference (AIF)</strong>, particularly how intelligent agents can reason and adapt their actions under uncertainty. I am also interested in applying Large Language Models to practical software systems.
