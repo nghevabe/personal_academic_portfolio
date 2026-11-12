@@ -71,24 +71,34 @@ const socialLinks = [
 
 const publications = [
   {
-    category: "PUBLISHED WORK · IEA/AIE 2026",
+    category: "PEER-REVIEWED PAPER · IEA/AIE 2026",
     title: "AI-Based System for Automatic Backlog Generation and Preliminary Estimation from Requirement Documents",
     description:
       "A practical AI-based approach to transforming requirement documents into structured software backlogs and preliminary effort estimates.",
     href: scholarUrl,
     linkLabel: "Google Scholar",
     icon: "01",
-    pending: false,
+    status: "Published",
+  },
+  {
+    category: "SYMPOSIUM PRESENTATION · AAIS 2026",
+    title: "Dynamic Action-Space Adaptation via Contrastive Transition Adaptation in Active Inference",
+    description:
+      "A research presentation at the Applied Active Inference Symposium 2026, introducing action-space expansion, average-slice transition initialization, and evidence-conditioned adaptation for newly available actions.",
+    href: "https://youtu.be/y4Bs0kARrYI",
+    linkLabel: "Watch Presentation",
+    icon: "02",
+    status: "Presented",
   },
   {
     category: "ONGOING RESEARCH · ACTIVE INFERENCE",
-    title: "Dynamic Action-Space Adaptation via Contrastive Transition Adaptation in Active Inference",
+    title: "Dynamic Action-Space Adaptation (DASA) — Full Research Paper",
     description:
-      "Research in progress on how Active Inference agents can introduce new actions and refine transition models through experience.",
+      "An ongoing manuscript investigating how Active Inference agents incorporate new actions and refine their transition models using Contrastive Transition Adaptation (CTA).",
     href: null,
     linkLabel: "In preparation",
-    icon: "02",
-    pending: true,
+    icon: "03",
+    status: "In preparation",
   },
 ];
 
@@ -247,9 +257,13 @@ const experience = [
                 <span class="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-[#F1EBDF] font-editorial text-2xl text-[#9B815F]">{pub.icon}</span>
                 <span class:list={[
                   "rounded-full px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider",
-                  pub.pending ? "bg-[#E8EEF5] text-[#526E89]" : "bg-[#EDE6D9] text-[#8B7350]",
+                  pub.status === "In preparation"
+                    ? "bg-[#E8EEF5] text-[#526E89]"
+                    : pub.status === "Presented"
+                      ? "bg-[#E6EEE9] text-[#4F7566]"
+                      : "bg-[#EDE6D9] text-[#8B7350]",
                 ]}>
-                  {pub.pending ? "In preparation" : "Published"}
+                  {pub.status}
                 </span>
               </div>
               <p class="mt-7 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#AE9673]">{pub.category}</p>
